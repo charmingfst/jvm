@@ -4,7 +4,7 @@ package com.chm.jvm.classloader;
  * Created by charming on 2018/2/3.
  * 对于静态变量来说，只有直接定义了该变量的类才会被初始化；
  * 当一个类在初始化时，要求其父类全部都已经初始化完毕了
- * --XX:+TraceClassLoadinig,用于追踪类的加载信息并打印出来
+ * --XX:+TraceClassLoading,用于追踪类的加载信息并打印出来
  *
  * --XX:+<option> 表示开启option选项
  * --XX:-<option> 表示关闭option选项
