@@ -2,7 +2,7 @@ package com.chm.jvm.classloader;
 
 /**
  * Created by charming on 2018/2/10.
- * 对于数组实例来说，器类型是油JVM在运行期动态生成的，表示为[com.chm.jvm.classloader.MyParent4这种形式，
+ * 对于数组实例来说，其类型是由JVM在运行期动态生成的，表示为[com.chm.jvm.classloader.MyParent4这种形式，
  * 动态生成的类型，其父类型就是Object。
  * 对于数组来说，JavaDoc经常讲构成数组的元素称为Component,实际上就是将数组降低一个维度后的类型。
  *
