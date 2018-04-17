@@ -15,12 +15,12 @@ title getSystemClassLoader详解\n
 start
 
 :getSystemClassLoader();
-:]initSystemClassLoader();
-:Launcher l = Launcher.getLauncher();
-note right: 方法直接返回launcher的实例，在Launcher\n构造方法中会创建扩展类加载器和系统类加载器
+:initSystemClassLoader();
+#00AAAA:Launcher l = Launcher.getLauncher();
+note right: 方法直接返回launcher的实例，在Launcher\n构造方法中会创建扩展类加载器和系统类加载器，\n并指定加载类的路径
 :scl = l.getClassLoader();\ntry {\n       scl = AccessController.doPrivileged(\n                  new SystemClassLoaderAction(scl));\n};
 note right:scl是ClassLoader类型的私有静态变量，\n用于存放系统类加载器
-:SystemClassLoaderAction的run方法;
+#00AAAA:SystemClassLoaderAction的run方法;
 note right:检查java.system.class.loader是否有值，默认\n没有值，则直接返回原本的系统类加载器,如果有值\n就将该值指定的类作为系统类加载器返回
 if("java.system.class.loader"系统属性是否有值) then (yes)
     :将该值指定的类作为系统类加载器返回;
