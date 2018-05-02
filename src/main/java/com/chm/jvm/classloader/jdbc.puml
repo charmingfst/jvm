@@ -1,0 +1,13 @@
+@startuml
+title jdbc驱动加载连接过程
+start
+:com.mysql.jdbc.Driver中的静态代码块，初始化java.sql.DriverManager;
+:DriverManager中的静态代码块loadInitialDrivers();
+note right:加载可用的驱动，首先通过jdbc.drivers系统属性查找，\n后面通过回调的方式使用ServiceLoader的方式加载
+:java.sql.DriverManager.registerDriver(new Driver())\n将驱动注册到DriverManager的静态的CopyOnWriteArrayList类型变量;
+:DriverManager中的getConnection方法;
+#00AAAA:isDriverAllowed方法\naClass == driver.getClass();
+note right:使用驱动时判断驱动是否由调用者加载器加载，\n防止在使用驱动前有修改线程上下文类加载器带来的命名空间问题。
+:使用具体驱动来建立数据库连接;
+end
+@enduml
